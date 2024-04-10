@@ -1,0 +1,11 @@
+<form method="get" action="/memos/new" class="form-example">
+  <button type="submit">メモを作成</button>
+</form>
+
+<ul>
+  <% @memos.each do |id, memo| %>
+    <li>
+      <a href="memos/<%= id %>"><%= CGI.escapeHTML(memo['title']) %></a>
+    </li>
+  <% end %>
+</ul>
