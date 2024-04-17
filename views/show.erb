@@ -1,11 +1,11 @@
 <p><%= CGI.escapeHTML(@title) %></p>
 <p><%= CGI.escapeHTML(@content) %></p>
 
-<form action="/memos/<%= params[:id] %>/edit" method="get" class="form-example">
+<form action="/memos/<%= params[:id] %>/edit" method="get">
   <input type="submit" value="編集">
 </form>
 
-<form action="/memos/<%= params[:id] %>" method="post" class="form-example">
+<form action="/memos/<%= params[:id] %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="削除">
 </form>
