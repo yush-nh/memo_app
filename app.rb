@@ -3,7 +3,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
-require 'cgi'
+require_relative 'helpers/app_helper'
 
 FILE_PATH = 'public/memos.json'
 next_id = File.read('public/next_id.txt').to_i
@@ -13,8 +13,7 @@ def collect_memos
 end
 
 def find_memo(id)
-  memos = collect_memos
-  memos[id]
+  collect_memos[id]
 end
 
 def save_memos(memos)
