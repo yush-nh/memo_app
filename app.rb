@@ -6,7 +6,7 @@ require 'json'
 require 'cgi'
 
 FILE_PATH = 'public/memos.json'
-next_id = 1
+next_id = File.read('public/next_id.txt').to_i
 
 def collect_memos
   File.open(FILE_PATH) { |f| JSON.parse(f.read) }
@@ -56,6 +56,7 @@ post '/memos' do
   memos[next_id] = { 'title' => params[:title], 'content' => params[:content] }
   save_memos(memos)
   next_id += 1
+  File.write('public/next_id.txt', next_id)
 
   redirect '/memos'
 end
