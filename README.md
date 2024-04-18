@@ -16,6 +16,6 @@ echo "1" > db/next_id.txt
 - 手動で行う場合
   - app.rbと同じ階層にdbフォルダを作成
   - dbフォルダ内にmemos.jsonファイルを作成し、`{}`を書き込んで保存
-  - dbフォルダ内にmemos.jsonファイルを作成し、`1`を書き込んで保存
+  - dbフォルダ内にnext_id.txtファイルを作成し、`1`を書き込んで保存
 
 6. `bundle exec ruby app.rb`でサーバーを立ち上げる
