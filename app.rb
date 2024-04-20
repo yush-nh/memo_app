@@ -6,7 +6,6 @@ require 'json'
 require_relative 'helpers/app_helper'
 
 FILE_PATH = 'db/memos.json'
-next_id = File.read('db/next_id.txt').to_i
 
 def collect_memos
   File.open(FILE_PATH) { |f| JSON.parse(f.read) }
@@ -52,10 +51,8 @@ end
 
 post '/memos' do
   memos = collect_memos
-  memos[next_id] = { 'title' => params[:title], 'content' => params[:content] }
+  memos[SecureRandom.uuid] = { 'title' => params[:title], 'content' => params[:content] }
   save_memos(memos)
-  next_id += 1
-  File.write('db/next_id.txt', next_id)
 
   redirect '/memos'
 end
