@@ -1,0 +1,9 @@
+<a href="/memos/new">メモを作成</a>
+
+<ul>
+  <% @memos.each do |id, memo| %>
+    <li>
+      <a href="memos/<%= id %>"><%= escape_html(memo['title']) %></a>
+    </li>
+  <% end %>
+</ul>
